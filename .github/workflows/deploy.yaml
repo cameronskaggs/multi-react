@@ -13,15 +13,15 @@ jobs:
       - run: docker build -t cameronskaggs/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true cameronskaggs/react-test npm test
  
-      - run: docker build -t cameronskaggs/multi-client-10-14 ./client
-      - run: docker build -t cameronskaggs/multi-nginx-10-14 ./nginx
-      - run: docker build -t cameronskaggs/multi-server-10-14 ./server
-      - run: docker build -t cameronskaggs/multi-worker-10-14 ./worker
+      - run: docker build -t cameronskaggs/multi-client ./client
+      - run: docker build -t cameronskaggs/multi-nginx ./nginx
+      - run: docker build -t cameronskaggs/multi-server ./server
+      - run: docker build -t cameronskaggs/multi-worker ./worker
  
-      - run: docker push cameronskaggs/multi-client-10-14
-      - run: docker push cameronskaggs/multi-nginx-10-14
-      - run: docker push cameronskaggs/multi-server-10-14
-      - run: docker push cameronskaggs/multi-worker-10-14
+      - run: docker push cameronskaggs/multi-client
+      - run: docker push cameronskaggs/multi-nginx
+      - run: docker push cameronskaggs/multi-server
+      - run: docker push cameronskaggs/multi-worker
  
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
